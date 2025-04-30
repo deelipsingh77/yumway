@@ -1,0 +1,324 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0 40px;
+  height: 60px;
+  position: relative;
+  /* padding-right: 10px; */
+}
+
+.navbar-logo {
+  flex: 0 0 25%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-logo img {
+  max-height: 80px;
+  max-width: 180px;
+  object-fit: contain;
+  padding-left: 20px;
+  transition: max-height 0.2s, max-width 0.2s;
+}
+
+.navbar-menu {
+  flex: 1 1 75%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar-menu a {
+  color: #e5a016;
+  /* text-decoration: none; */
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+  transition: color 0.2s;
+  padding-right: 10px;
+}
+
+.navbar-menu a:hover {
+  color: #0b85c6;
+}
+
+/* Hamburger icon styles */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.navbar-toggle span {
+  height: 3px;
+  width: 28px;
+  background: #fff;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 10px;
+    height: 70px;
+  }
+
+  .navbar-logo img {
+    max-height: 50px;
+    max-width: 120px;
+    padding-left: 0;
+  }
+
+  .navbar-menu {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 10px;
+  }
+
+  .navbar-logo {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .navbar-logo img {
+    max-height: 45px;
+    max-width: 100px;
+    padding-left: 0;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background: #161A32;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 12px 0;
+    gap: 10px;
+    z-index: 1;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu a {
+    text-align: center;
+    padding: 8px 0;
+    width: 100%;
+  }
+}
+
+/*  */
+.custom-image {
+  height: 280px;
+  width: 800px;
+  object-fit: cover;
+  /* इमेज को सही तरीके से फिट करने के लिए */
+}
+
+/* Carousel control */
+#carouselExampleCaptions .carousel-item img {
+  height: 600px; /* Sets a fixed height for carousel images */
+  width: 100%;
+  object-fit: cover; /* Maintains aspect ratio without distortion */
+}
+
+.hero-section {
+  max-width: 800px;
+  margin: 60px auto;
+  margin-top: 0px;
+  padding: 20px;
+  /* background: linear-gradient(135deg, #fffdf9, #ffe9d6); */
+  border-radius: 20px;
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
+  text-align: center;
+  /* padding-top: 1000px; */
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  color: #5755c8;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.hero-section .tagline {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d35400;
+  margin-bottom: 20px;
+}
+
+.hero-section .desc {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-section .highlights {
+  list-style: none;
+  padding: 0;
+  font-size: 17px;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.hero-section .highlights li {
+  margin: 8px 0;
+}
+
+.hero-section .welcome {
+  font-size: 20px;
+  font-weight: bold;
+  color: #c0392b;
+}
+
+/* Card Image Fit */
+h2{
+  align-items: center;
+}
+
+/* Carousel Section */
+.carousel-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.carousel-section h2 {
+  font-size: 36px;
+  color: #5755c8;
+  margin-bottom: 30px;
+  font-family: Arial, sans-serif;
+}
+
+/* Owl Carousel Styling */
+.slider.owl-carousel {
+  position: relative;
+}
+
+.slider .card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.slider .card:hover {
+  transform: translateY(-5px);
+}
+
+.slider .img {
+  width: 100%;
+  height: 250px; /* Fixed height for square images */
+  overflow: hidden;
+}
+
+.slider .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the square without distortion */
+  display: block;
+}
+
+.slider .card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.slider .card-content h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.slider .card-content p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Owl Carousel Navigation */
+.owl-nav {
+  margin-top: 20px;
+}
+
+.owl-nav button.owl-prev,
+.owl-nav button.owl-next {
+  background: #5755c8 !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+  transition: background 0.3s ease;
+}
+
+.owl-nav button.owl-prev:hover,
+.owl-nav button.owl-next:hover {
+  background: #d35400 !important;
+}
+
+.owl-nav button.owl-prev span,
+.owl-nav button.owl-next span {
+  line-height: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slider .img {
+    height: 200px; /* Smaller square for mobile */
+  }
+
+  .carousel-section h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .slider .img {
+    height: 150px;
+  }
+
+  .slider .card-content h3 {
+    font-size: 18px;
+  }
+
+  .slider .card-content p {
+    font-size: 12px;
+  }
+}
