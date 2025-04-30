@@ -7,11 +7,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: white !important; /* !important to override system dark theme */
   padding: 0 40px;
   height: 60px;
   position: relative;
-  /* padding-right: 10px; */
+  color-scheme: light; /* Prevent dark mode color inversion */
 }
 
 .navbar-logo {
@@ -57,15 +57,30 @@ body {
   justify-content: center;
   cursor: pointer;
   margin-left: 10px;
+  z-index: 100; /* Ensure it's clickable */
 }
 
 .navbar-toggle span {
+  display: block;
   height: 3px;
   width: 28px;
-  background: #fff;
+  background-color: #333; /* Darker color for visibility */
   margin: 5px 0;
   border-radius: 2px;
-  transition: 0.4s;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation */
+.navbar-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsive Styles */
@@ -111,14 +126,13 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 2;
   }
 
   .navbar-menu {
     flex-direction: column;
     width: 100%;
     display: none;
-    background: #161A32;
+    background: #161A32 !important; /* Force background color */
     position: absolute;
     top: 70px;
     left: 0;
@@ -135,7 +149,52 @@ body {
     text-align: center;
     padding: 8px 0;
     width: 100%;
+    color: #e5a016 !important; /* Force text color */
   }
+
+  .navbar-menu {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: #161A32 !important;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 0;
+    gap: 0;
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 12px 0;
+  }
+
+  .navbar-menu a {
+    text-align: center;
+    padding: 12px 0;
+    width: 100%;
+    color: #e5a016 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .navbar-menu.active a {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .navbar-menu.active a:nth-child(1) { transition-delay: 0.1s; }
+  .navbar-menu.active a:nth-child(2) { transition-delay: 0.2s; }
+  .navbar-menu.active a:nth-child(3) { transition-delay: 0.3s; }
+  .navbar-menu.active a:nth-child(4) { transition-delay: 0.4s; }
 }
 
 /*  */

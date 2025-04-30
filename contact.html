@@ -75,6 +75,7 @@
   <script>
     // Toggle navbar menu for mobile
     document.getElementById('navbar-toggle').addEventListener('click', function() {
+      this.classList.toggle('open');
       document.getElementById('navbar-menu').classList.toggle('active');
     });
     
