@@ -150,7 +150,76 @@ body {
 #carouselExampleCaptions .carousel-item img {
   height: 600px; /* Sets a fixed height for carousel images */
   width: 100%;
-  object-fit: cover; /* Maintains aspect ratio without distortion */
+  object-fit: cover; /* Makes images cover the container, cropping height as needed */
+  object-position: center; /* Centers the image focus point */
+  background-color: #000; /* Optional: adds a background color for letterboxing */
+}
+
+/* Mobile-specific adjustments for carousel images */
+@media (max-width: 768px) {
+  #carouselExampleCaptions .carousel-item img {
+    object-position: left center; /* Focus on the left side of images on mobile */
+  }
+}
+
+/* Fixed position carousel indicators */
+.carousel-indicators {
+  position: absolute; /* Changed from fixed to absolute */
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #5755c8;
+  margin: 60px 0 40px;
+  position: relative;
+  padding-bottom: 15px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.heading::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background-color: #e5a016;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive styles for the heading */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 36px;
+    margin: 40px 0 30px;
+  }
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background-color: white;
+  opacity: 1;
 }
 
 .hero-section {
@@ -320,5 +389,63 @@ h2{
 
   .slider .card-content p {
     font-size: 12px;
+  }
+}
+
+/* Contact Form Styles */
+.contact-form-container {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 60px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #5755c8;
+  margin-bottom: 8px;
+}
+
+.form-control {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #5755c8;
+  box-shadow: 0 0 0 0.25rem rgba(87, 85, 200, 0.15);
+}
+
+.btn-submit {
+  background-color: #e5a016;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.btn-submit:hover {
+  background-color: #5755c8;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(87, 85, 200, 0.3);
+}
+
+/* Responsive styles for contact form */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 20px;
+  }
+  
+  .btn-submit {
+    width: 100%;
+    padding: 10px;
   }
 }
